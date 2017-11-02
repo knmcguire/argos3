@@ -80,7 +80,9 @@ namespace argos {
    /****************************************/
 
    void CPointMass3DQuadRotorModel::UpdateFromEntityStatus() {
+	  
       m_sDesiredPositionData = m_cQuadRotorEntity.GetPositionControlData();
+      m_sDesiredSpeedData = m_cQuadRotorEntity.GetSpeedControlData();
    }
 
    /****************************************/
@@ -124,9 +126,14 @@ namespace argos {
       /*
        * Update force/torque information
        */
+
+	  //std::cout << "Linear control:" << std::endl;
+	  //std::cout << m_cLinearControl << std::endl;
+
       m_cAcceleration.SetX(m_cLinearControl.GetX());
       m_cAcceleration.SetY(m_cLinearControl.GetY());
-      m_cAcceleration.SetZ(m_cLinearControl.GetZ() + m_fBodyMass * m_cPM3DEngine.GetGravity());
+      //m_cAcceleration.SetZ(m_cLinearControl.GetZ() + m_fBodyMass * m_cPM3DEngine.GetGravity());
+	  m_cAcceleration.SetZ(m_cLinearControl.GetZ());
       m_cTorque.SetValue(m_fRotationalControl);
    }
 
@@ -206,7 +213,8 @@ namespace argos {
                            m_sDesiredSpeedData.Velocity.GetZ() - m_cVelocity.GetZ(),
                            m_cVelKP.GetZ(),
                            m_cVelKD.GetZ(),
-                           m_pfLinearError[2]) - m_fBodyMass * m_cPM3DEngine.GetGravity()));
+                           //m_pfLinearError[2]) - m_fBodyMass * m_cPM3DEngine.GetGravity()));
+						   m_pfLinearError[2])));
       /* Rotational control */
       m_fRotationalControl =
          SymmetricClamp(m_fMaxTorque, PDControl(

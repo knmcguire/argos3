@@ -24,6 +24,7 @@ namespace argos {
    /****************************************/
 
    void CDefaultVisualization::Init(TConfigurationNode& t_tree) {
+
       /* Get visualization id from the XML */
       //GetNodeAttribute(t_tree, "id", m_strId);
       /* Set the pointer to the step function */

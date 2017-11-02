@@ -25,6 +25,7 @@ namespace argos {
    /****************************************/
 
    CDefaultVisualization::CDefaultVisualization() {
+
       /* Set the pointer to the step function */
       if(m_cSimulator.IsRealTimeClock()) {
          /* Use real-time clock and set time structures */

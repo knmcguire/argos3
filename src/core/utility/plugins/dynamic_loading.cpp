@@ -180,7 +180,7 @@ namespace argos {
    /****************************************/
    /****************************************/
 
-   void CDynamicLoading::LoadAllLibraries() {      
+   void CDynamicLoading::LoadAllLibraries() {
       /* String to store the full path to a library */
       std::string strLibPath;
       /* String to store the list of paths to search */

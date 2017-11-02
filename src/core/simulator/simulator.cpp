@@ -126,6 +126,7 @@ namespace argos {
    /****************************************/
 
    void CSimulator::Init() {
+
       /* General configuration */
       InitFramework(GetNode(m_tConfigurationRoot, "framework"));
       /* Initialize controllers */
@@ -154,6 +155,7 @@ namespace argos {
       /* Media */
       InitMedia2();
       /* Initialise visualization */
+
       TConfigurationNodeIterator itVisualization;
       if(NodeExists(m_tConfigurationRoot, "visualization") &&
          ((itVisualization = itVisualization.begin(&GetNode(m_tConfigurationRoot, "visualization"))) != itVisualization.end())) {
@@ -163,10 +165,12 @@ namespace argos {
          LOG << "[INFO] No visualization selected." << std::endl;
          m_pcVisualization = new CDefaultVisualization();
       }
+
       /* Start profiling, if needed */
       if(IsProfiling()) {
          m_pcProfiler->Start();
       }
+
    }
 
    /****************************************/
@@ -621,6 +625,7 @@ namespace argos {
    /****************************************/
 
    void CSimulator::InitVisualization(TConfigurationNode& t_tree) {
+
       try {
          /* Consider only the first visualization */
          TConfigurationNodeIterator itVisualization;
@@ -629,6 +634,7 @@ namespace argos {
          m_pcVisualization = CFactory<CVisualization>::New(itVisualization->Value());
          /* Initialize the visualization */
          m_pcVisualization->Init(*itVisualization);
+
       }
       catch(CARGoSException& ex) {
          THROW_ARGOSEXCEPTION_NESTED("Failed to initialize the visualization. Parse error in the <visualization> subtree.", ex);
