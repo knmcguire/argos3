@@ -18,3 +18,11 @@ cmake_install.cmake
 doinst.sh
 slack-desc
 TAGS
+Doxyfile_embedded
+Doxyfile_standalone
+argos3.desktop
+argos_post_install.sh
+core/
+postinst
+setup_env.sh
+
