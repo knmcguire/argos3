@@ -143,7 +143,7 @@ namespace argos {
             CVector3(0.0f, 0.0f, PROXIMITY_SENSOR_RING_ELEVATION),
             PROXIMITY_SENSOR_RING_RADIUS,
             PROXIMITY_SENSOR_RING_START_ANGLE,
-            PROXIMITY_SENSOR_RING_RANGE,
+            2.0f,
             4,
             m_pcEmbodiedEntity->GetOriginAnchor());
          // Add Sensor Wedge -->
@@ -155,7 +155,7 @@ namespace argos {
 			start_wedge,
 			CRadians(1.05f),
             2.0f,
-            20,
+            15,
             m_pcEmbodiedEntity->GetOriginAnchor());
 
          /* Light sensor equipped entity */
@@ -312,12 +312,12 @@ namespace argos {
          m_pcProximitySensorEquippedEntity->AddSensorRing(
             CVector3(0.0f, 0.0f, PROXIMITY_SENSOR_RING_ELEVATION),
             PROXIMITY_SENSOR_RING_RADIUS,
-            PROXIMITY_SENSOR_RING_START_ANGLE,
-            PROXIMITY_SENSOR_RING_RANGE,
+	    CRadians(0.0f),
+            2.0f,
             4,
             m_pcEmbodiedEntity->GetOriginAnchor());
          // Add Sensor Wedge
-         const CRadians start_wedge = PROXIMITY_SENSOR_RING_START_ANGLE - CRadians(0.52f);
+         const CRadians start_wedge =  - CRadians(0.52f);
          m_pcProximitySensorEquippedEntity->AddSensorWedge(
             CVector3(0.0f, 0.0f, PROXIMITY_SENSOR_RING_ELEVATION),
             PROXIMITY_SENSOR_RING_RADIUS,
