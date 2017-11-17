@@ -64,6 +64,7 @@ namespace argos {
    /****************************************/
 
    CDynamicLoading::TDLHandle CDynamicLoading::LoadLibrary(const std::string& str_lib) {
+
       TDLHandle tHandle;
       /* Check if the provided path is absolute or relative */
       if(str_lib[0] == '/') {
@@ -133,6 +134,7 @@ namespace argos {
                return m_tOpenLibs[strLibPath];
             }
             /* Not already loaded, try and load the library */
+
             tHandle = LoadLibraryTryingExtensions(strLibPath, strMsg);
             if(tHandle != NULL) {
                /* Store the handle to the loaded library */

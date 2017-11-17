@@ -39,10 +39,11 @@ namespace argos {
    static const Real PROXIMITY_SENSOR_RING_ELEVATION       = 0.06f;
    static const Real PROXIMITY_SENSOR_RING_RADIUS          = BODY_RADIUS;
    static const CRadians PROXIMITY_SENSOR_RING_START_ANGLE = CRadians((ARGOS_PI / 12.0f) * 0.5f);
-   static const Real PROXIMITY_SENSOR_RING_RANGE           = 1.0f;
+   static const Real PROXIMITY_SENSOR_RING_RANGE           = 0.1f;
 
    static const Real LED_RING_ELEVATION         = 0.085f;
-   static const Real RAB_ELEVATION              = 0.1f;
+   //static const Real RAB_ELEVATION              = 0.1f;
+   static const Real RAB_ELEVATION              = 1.0f;
    static const Real BEACON_ELEVATION           = 0.174249733f;
 
    static const Real GRIPPER_ELEVATION          = LED_RING_ELEVATION;
@@ -143,10 +144,11 @@ namespace argos {
             CVector3(0.0f, 0.0f, PROXIMITY_SENSOR_RING_ELEVATION),
             PROXIMITY_SENSOR_RING_RADIUS,
             PROXIMITY_SENSOR_RING_START_ANGLE,
-            2.0f,
-            4,
+            PROXIMITY_SENSOR_RING_RANGE,
+            //24,
+            12,
             m_pcEmbodiedEntity->GetOriginAnchor());
-         // Add Sensor Wedge -->
+         /* Add Sensor Wedge 
          const CRadians start_wedge = PROXIMITY_SENSOR_RING_START_ANGLE - CRadians(0.52f);
 
          m_pcProximitySensorEquippedEntity->AddSensorWedge(
@@ -157,6 +159,7 @@ namespace argos {
             2.0f,
             15,
             m_pcEmbodiedEntity->GetOriginAnchor());
+            */
 
          /* Light sensor equipped entity */
          m_pcLightSensorEquippedEntity =
@@ -312,11 +315,12 @@ namespace argos {
          m_pcProximitySensorEquippedEntity->AddSensorRing(
             CVector3(0.0f, 0.0f, PROXIMITY_SENSOR_RING_ELEVATION),
             PROXIMITY_SENSOR_RING_RADIUS,
-	    CRadians(0.0f),
-            2.0f,
-            4,
+            PROXIMITY_SENSOR_RING_START_ANGLE,
+            PROXIMITY_SENSOR_RING_RANGE,
+            //24,
+            12,
             m_pcEmbodiedEntity->GetOriginAnchor());
-         // Add Sensor Wedge
+         /* Add Sensor Wedge
          const CRadians start_wedge =  - CRadians(0.52f);
          m_pcProximitySensorEquippedEntity->AddSensorWedge(
             CVector3(0.0f, 0.0f, PROXIMITY_SENSOR_RING_ELEVATION),
@@ -325,7 +329,7 @@ namespace argos {
 			CRadians(1.05f),
             2.0f,
             20,
-            m_pcEmbodiedEntity->GetOriginAnchor());
+            m_pcEmbodiedEntity->GetOriginAnchor());*/
 
 
          /* Light sensor equipped entity */
@@ -391,7 +395,7 @@ namespace argos {
             new CFootBotDistanceScannerEquippedEntity(this, "distance_scanner_0");
          AddComponent(*m_pcDistanceScannerEquippedEntity);
          /* RAB equipped entity */
-         Real fRange = 3.0f;
+         Real fRange = 30.0f;
          GetNodeAttributeOrDefault(t_tree, "rab_range", fRange, fRange);
          UInt32 unDataSize = 10;
          GetNodeAttributeOrDefault(t_tree, "rab_data_size", unDataSize, unDataSize);

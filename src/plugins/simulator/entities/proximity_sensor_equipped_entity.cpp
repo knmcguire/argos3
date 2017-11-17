@@ -31,7 +31,7 @@ namespace argos {
       CEntity(pc_parent) {
       Disable();
    }
-   
+
    /****************************************/
    /****************************************/
 
@@ -150,7 +150,7 @@ namespace argos {
 
    /****************************************/
    /****************************************/
-   
+
    void CProximitySensorEquippedEntity::AddSensorRing(const CVector3& c_center,
                                                       Real f_radius,
                                                       const CRadians& c_start_angle,
@@ -204,7 +204,7 @@ namespace argos {
    /****************************************/
 
    REGISTER_STANDARD_SPACE_OPERATIONS_ON_ENTITY(CProximitySensorEquippedEntity);
-   
+
    /****************************************/
    /****************************************/
 

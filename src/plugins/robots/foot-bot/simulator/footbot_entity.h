@@ -54,7 +54,7 @@ namespace argos {
       virtual void Init(TConfigurationNode& t_tree);
       virtual void Reset();
       virtual void UpdateComponents();
-      
+
       inline CControllableEntity& GetControllableEntity() {
          return *m_pcControllableEntity;
       }
