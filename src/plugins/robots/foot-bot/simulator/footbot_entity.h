@@ -43,7 +43,7 @@ namespace argos {
                      const std::string& str_controller_id,
                      const CVector3& c_position = CVector3(),
                      const CQuaternion& c_orientation = CQuaternion(),
-                     Real f_rab_range = 3.0f,
+                     Real f_rab_range = 30.0f,
                      size_t un_rab_data_size = 10,
                      const CRadians& c_omnicam_aperture = ToRadians(CDegrees(70.0f)),
                      bool b_perspcam_front = true,
@@ -54,7 +54,7 @@ namespace argos {
       virtual void Init(TConfigurationNode& t_tree);
       virtual void Reset();
       virtual void UpdateComponents();
-      
+
       inline CControllableEntity& GetControllableEntity() {
          return *m_pcControllableEntity;
       }

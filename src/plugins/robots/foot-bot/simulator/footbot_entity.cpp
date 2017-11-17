@@ -42,7 +42,8 @@ namespace argos {
    static const Real PROXIMITY_SENSOR_RING_RANGE           = 0.1f;
 
    static const Real LED_RING_ELEVATION         = 0.085f;
-   static const Real RAB_ELEVATION              = 0.1f;
+   //static const Real RAB_ELEVATION              = 0.1f;
+   static const Real RAB_ELEVATION              = 1.0f;
    static const Real BEACON_ELEVATION           = 0.174249733f;
 
    static const Real GRIPPER_ELEVATION          = LED_RING_ELEVATION;
@@ -144,7 +145,8 @@ namespace argos {
             PROXIMITY_SENSOR_RING_RADIUS,
             PROXIMITY_SENSOR_RING_START_ANGLE,
             PROXIMITY_SENSOR_RING_RANGE,
-            24,
+            //24,
+            12,
             m_pcEmbodiedEntity->GetOriginAnchor());
          /* Light sensor equipped entity */
          m_pcLightSensorEquippedEntity =
@@ -302,7 +304,8 @@ namespace argos {
             PROXIMITY_SENSOR_RING_RADIUS,
             PROXIMITY_SENSOR_RING_START_ANGLE,
             PROXIMITY_SENSOR_RING_RANGE,
-            24,
+            //24,
+            12,
             m_pcEmbodiedEntity->GetOriginAnchor());
          /* Light sensor equipped entity */
          m_pcLightSensorEquippedEntity =
@@ -367,7 +370,7 @@ namespace argos {
             new CFootBotDistanceScannerEquippedEntity(this, "distance_scanner_0");
          AddComponent(*m_pcDistanceScannerEquippedEntity);
          /* RAB equipped entity */
-         Real fRange = 3.0f;
+         Real fRange = 30.0f;
          GetNodeAttributeOrDefault(t_tree, "rab_range", fRange, fRange);
          UInt32 unDataSize = 10;
          GetNodeAttributeOrDefault(t_tree, "rab_data_size", unDataSize, unDataSize);
